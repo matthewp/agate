@@ -21,6 +21,10 @@
 	margin: 4px 6px 5px;
 }
 
+.agate-toolbar-centered {
+  text-align: center;
+}
+
 .agate-toolbar .agate-icon-button {
 	margin: 3px 2px 1px;
 }

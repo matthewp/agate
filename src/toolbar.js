@@ -2,11 +2,13 @@ var Toolbar = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'agate-toolbar',
+  className: 'agate-toolbar agate-toolbar-inline agate-toolbar-centered',
+
+  text: '',
 
   initialize: function() {
-    if(this.options && this.options.title)
-      this.title = this.options.title;
+    if(this.options && this.options.text)
+      this.text = this.options.text;
   },
 
   render: function() {
