@@ -13,9 +13,13 @@
 <body>
 <script defer="defer">
 function renderDemo() {
+  var body = document.body;
+
+  var toolbar = new Toolbar({ text: 'Title' });
+  body.appendChild(toolbar.render().el);
+
   var btn = new Button({ text: 'Hello' });
-  var el = btn.render().el;
-  document.body.appendChild(el);
+  body.appendChild(btn.render().el);
 }
 
 window.addEventListener('load', function pageLoad(e) {
