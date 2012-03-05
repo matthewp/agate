@@ -38,7 +38,3 @@ var Button = Backbone.View.extend({
   }
 
 });
-
-var btn = new Button({ text: 'Hello' });
-var el = btn.render().el;
-document.body.appendChild(el);

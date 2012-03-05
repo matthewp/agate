@@ -11,5 +11,17 @@
   <script src="src/button.js" defer="defer"></script>
 </head>
 <body>
+<script defer="defer">
+function renderDemo() {
+  var btn = new Button({ text: 'Hello' });
+  var el = btn.render().el;
+  document.body.appendChild(el);
+}
+
+window.addEventListener('load', function pageload(e) {
+  window.removeEventListener('load', pageLoad);
+  renderDemo();
+});
+</script>
 </body>
 </html>
