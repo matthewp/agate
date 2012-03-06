@@ -39,6 +39,7 @@ function renderDemo() {
   body.appendChild(btn.render().el);
 
   renderNav(body);
+  renderRadio(body);
 }
 
 function renderNav(body) {
@@ -68,6 +69,16 @@ function renderNav(body) {
 
   el.className += ' bottom-bar';
   body.appendChild(el);
+}
+
+function renderRadio(body) {
+  var btn = new Agate.RadioButtonView({
+    model: {
+      text: 'Radio'
+    }
+  });
+
+  body.appendChild(btn.render().el);
 }
 
 window.addEventListener('load', function pageLoad(e) {

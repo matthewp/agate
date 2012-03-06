@@ -3,5 +3,7 @@ this.Agate = {
   ToolbarView: ToolbarView,
 
   Button: Button,
-  ButtonView: ButtonView
+  ButtonView: ButtonView,
+
+  RadioButtonView: RadioButtonView
 };

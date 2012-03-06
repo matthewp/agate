@@ -48,6 +48,9 @@ var ButtonView = Backbone.View.extend({
   }
 
 });
+var RadioButtonView = ButtonView.extend({
+  className: 'agate-radiobutton'
+});
 var Toolbar = Backbone.Model.extend({
   defaults: {
     text: ''
@@ -79,6 +82,8 @@ this.Agate = {
   ToolbarView: ToolbarView,
 
   Button: Button,
-  ButtonView: ButtonView
+  ButtonView: ButtonView,
+
+  RadioButtonView: RadioButtonView
 };
 }).call(this);

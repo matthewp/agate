@@ -1,3 +1,3 @@
-var RadioButtonView = Backbone.View.extend({
+var RadioButtonView = ButtonView.extend({
   className: 'agate-radiobutton'
 });

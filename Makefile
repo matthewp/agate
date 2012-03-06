@@ -5,11 +5,13 @@ builddir = build/
 
 # Create the list of modules
 js = ${srcdir}button.js\
+     ${srcdir}radio_button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 
 css = ${srcdir}css/agate.css\
       ${srcdir}css/button.css\
+      ${srcdir}css/radio_button.css\
       ${srcdir}css/toolbar.css\
 
 all: agate.js agate.min.js agate.css
