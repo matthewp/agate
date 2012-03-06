@@ -24,7 +24,7 @@ agate.js: ${js}
 	echo "}).call(this);" >> ${builddir}$@
 
 agate.min.js:
-	uglifyjs -o ${builddir}$@ ${builddir}agate.js
+	uglifyjs -nc -o ${builddir}$@ ${builddir}agate.js
 
 agate.css: ${css}
 	cat > ${builddir}$@ $^

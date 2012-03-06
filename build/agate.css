@@ -53,7 +53,7 @@
 }
 
 .agate-button:active:not([disabled]) {
-  background: #E1E1E1 -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.24)), color-stop(71%,rgba(0, 0, 0, 0)), color-stop(100%,rgba(0, 0, 0, 0)));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.24)), color-stop(71%,rgba(0, 0, 0, 0)), color-stop(100%,rgba(0, 0, 0, 0)));
 
 
 	background-position: top;
