@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test page</title>
+  <title>Agate UI Toolkit</title>
   <link rel="stylesheet" type="text/css" href="build/agate.css" />
   <script src="libs/zepto/zepto.min.js"></script>
   <script src="libs/underscore/underscore-min.js"></script>
@@ -9,19 +9,48 @@
   <script src="libs/doT/doT.js"></script>
 
   <script src="build/agate.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 <script defer="defer">
 function renderDemo() {
   var body = document.body,
-      toolbar = new Agate.ToolbarView({ model: { text: 'Title' } }),
-      btn = new Agate.ButtonView({ model: { text: 'Hello' } });
+      toolbar = new Agate.ToolbarView({ model: { text: 'Agate' } }),
+      btn = new Agate.ButtonView({ model: { text: 'Button' } });
 
   var toolbarEl = toolbar.render().el;
   toolbarEl.style.marginBottom = '10px';
   
   body.appendChild(toolbarEl);
   body.appendChild(btn.render().el);
+
+  renderNav(body);
+}
+
+function renderNav(body) {
+  var NavView = Agate.ToolbarView.extend({
+    
+  });
+
+  var nav = new NavView(),
+      el = nav.render().el;
+
+  el.className += ' bottom-bar';
+  body.appendChild(el);
 }
 
 window.addEventListener('load', function pageLoad(e) {
