@@ -5,6 +5,10 @@ var AppView = Backbone.View.extend({
 
   className: 'agate',
 
+  attributes: {
+    'style': 'padding: 10px'
+  },
+
   render: function() {
     var self = this;
 
