@@ -1,4 +1,8 @@
-var Button = Backbone.View.extend({
+var Button = Backbone.Model.extend({
+
+});
+
+var ButtonView = Backbone.View.extend({
 
   tagName: 'button',
 

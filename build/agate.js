@@ -2,7 +2,11 @@
 
 (function() {
 'use strict';
-var Button = Backbone.View.extend({
+var Button = Backbone.Model.extend({
+
+});
+
+var ButtonView = Backbone.View.extend({
 
   tagName: 'button',
 
@@ -42,21 +46,25 @@ var Button = Backbone.View.extend({
   }
 
 });
-var Toolbar = Backbone.View.extend({
+var Toolbar = Backbone.Model.extend({
+  text: ''
+});
+
+var ToolbarView = Backbone.View.extend({
 
   tagName: 'div',
 
   className: 'agate agate-toolbar agate-toolbar-inline agate-toolbar-centered',
 
-  text: '',
+  model: new Toolbar(),
 
   initialize: function() {
-    if(this.options && this.options.text)
-      this.text = this.options.text;
+    if(!(this.model instanceof Toolbar))
+      this.model = new Toolbar(this.model);
   },
 
   render: function() {
-    this.el.textContent = this.text;
+    this.el.textContent = this.model.get('text');
     return this;
   }
 
@@ -64,6 +72,9 @@ var Toolbar = Backbone.View.extend({
 
 this.Agate = {
   Toolbar: Toolbar,
-  Button: Button
+  ToolbarView: ToolbarView,
+
+  Button: Button,
+  ButtonView: ButtonView
 };
 }).call(this);

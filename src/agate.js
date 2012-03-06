@@ -1,4 +1,7 @@
 this.Agate = {
   Toolbar: Toolbar,
-  Button: Button
+  ToolbarView: ToolbarView,
+
+  Button: Button,
+  ButtonView: ButtonView
 };

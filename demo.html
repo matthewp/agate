@@ -14,8 +14,8 @@
 <script defer="defer">
 function renderDemo() {
   var body = document.body,
-      toolbar = new Agate.Toolbar({ text: 'Title' }),
-      btn = new Agate.Button({ text: 'Hello' });
+      toolbar = new Agate.ToolbarView({ model: { text: 'Title' } }),
+      btn = new Agate.ButtonView({ text: 'Hello' });
 
   var toolbarEl = toolbar.render().el;
   toolbarEl.style.marginBottom = '10px';
