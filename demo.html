@@ -9,6 +9,7 @@
   <script src="libs/doT/doT.js"></script>
 
   <script src="build/agate.js"></script>
+  <script src="app.js"></script>
   <style>
     html, body {
       height: 100%;
@@ -37,76 +38,10 @@
 </head>
 <body>
 <script defer="defer">
-function renderDemo() {
-  var body = document.body,
-      toolbar = new Agate.ToolbarView({ model: { text: 'Agate' } }),
-      btn = new Agate.ButtonView({ model: { text: 'Button' } });
-
-  var toolbarEl = toolbar.render().el;
-  toolbarEl.style.marginBottom = '10px';
-  
-  body.appendChild(toolbarEl);
-
-  // Buttons
-  body.appendChild(createDivider('Buttons'));
-  body.appendChild(btn.render().el);
-
-  renderRadio(body);
-  renderNav(body);
-}
-
-function renderNav(body) {
-  var NavView = Agate.ToolbarView.extend({
-    initialize: function() {
-      Agate.ToolbarView.prototype.initialize.call(this);
-
-      this.button = new Agate.ButtonView({
-        model: {
-          text: 'Go'
-        }
-      });
-    },
-
-    render: function() {
-      this.el = Agate.ToolbarView.prototype.render.call(this).el;
-      this.el.appendChild(
-        this.button.render().el
-      );
-
-      return this;
-    }
-  });
-
-  var nav = new NavView(),
-      el = nav.render().el;
-
-  el.className += ' bottom-bar';
-  body.appendChild(el);
-}
-
-function renderRadio(body) {
-  var btn = new Agate.RadioButtonView({
-    model: {
-      text: 'Radio'
-    }
-  });
-
-  body.appendChild(createDivider('Radio buttons'));
-  body.appendChild(btn.render().el);
-}
-
-function createDivider(text) {
-  var el = document.createElement('div');
-  el.className = 'divider';
-  if(text)
-    el.textContent = text;
-
-  return el;
-}
-
 window.addEventListener('load', function pageLoad(e) {
   window.removeEventListener('load', pageLoad);
-  renderDemo();
+  
+  document.body.appendChild(window.App.render().el);
 });
 </script>
 </body>
