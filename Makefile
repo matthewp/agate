@@ -8,7 +8,8 @@ js = ${srcdir}button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 
-css = ${srcdir}css/button.css\
+css = ${srcdir}css/agate.css\
+      ${srcdir}css/button.css\
       ${srcdir}css/toolbar.css\
 
 all: agate.js agate.min.js agate.css

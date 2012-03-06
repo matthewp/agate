@@ -17,7 +17,10 @@ function renderDemo() {
       toolbar = new Agate.Toolbar({ text: 'Title' }),
       btn = new Agate.Button({ text: 'Hello' });
 
-  body.appendChild(toolbar.render().el);
+  var toolbarEl = toolbar.render().el;
+  toolbarEl.style.marginBottom = '10px';
+  
+  body.appendChild(toolbarEl);
   body.appendChild(btn.render().el);
 }
 
