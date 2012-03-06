@@ -7,6 +7,11 @@ builddir = build/
 js = ${srcdir}button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
+
+css = ${srcdir}css/button.css\
+      ${srcdir}css/toolbar.css\
+
+all: agate.js agate.min.js agate.css
 		              
 # Compress all of the modules into agate.js
 agate.js: ${js}
@@ -17,3 +22,8 @@ agate.js: ${js}
 	cat >> ${builddir}$@ $^
 	echo "}).call(this);" >> ${builddir}$@
 
+agate.min.js:
+	uglifyjs -o ${builddir}$@ ${builddir}agate.js
+
+agate.css: ${css}
+	cat > ${builddir}$@ $^
