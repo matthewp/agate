@@ -8,17 +8,16 @@
   <script src="libs/backbone/backbone.js"></script>
   <script src="libs/doT/doT.js"></script>
 
-  <script src="src/button.js" defer="defer"></script>
+  <script src="build/agate.js"></script>
 </head>
 <body>
 <script defer="defer">
 function renderDemo() {
-  var body = document.body;
+  var body = document.body,
+      toolbar = new Agate.Toolbar({ text: 'Title' }),
+      btn = new Agate.Button({ text: 'Hello' });
 
-  var toolbar = new Toolbar({ text: 'Title' });
   body.appendChild(toolbar.render().el);
-
-  var btn = new Button({ text: 'Hello' });
   body.appendChild(btn.render().el);
 }
 

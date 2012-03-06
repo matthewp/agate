@@ -4,12 +4,12 @@ srcdir = src/
 builddir = build/
 
 # Create the list of modules
-modules = ${srcdir}button.js\
-          ${srcdir}toolbar.js\
-          ${srcdir}agate.js\
+js = ${srcdir}button.js\
+     ${srcdir}toolbar.js\
+     ${srcdir}agate.js\
 		              
 # Compress all of the modules into agate.js
-agate.js: ${modules}
+agate.js: ${js}
 	echo "/* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */" > ${builddir}$@
 	echo ${\n} >> ${builddir}$@
 	echo "(function() {" >> ${builddir}$@
