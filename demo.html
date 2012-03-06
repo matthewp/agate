@@ -43,7 +43,24 @@ function renderDemo() {
 
 function renderNav(body) {
   var NavView = Agate.ToolbarView.extend({
-    
+    initialize: function() {
+      Agate.ToolbarView.prototype.initialize.call(this);
+
+      this.button = new Agate.ButtonView({
+        model: {
+          text: 'Go'
+        }
+      });
+    },
+
+    render: function() {
+      this.el = Agate.ToolbarView.prototype.render.call(this).el;
+      this.el.appendChild(
+        this.button.render().el
+      );
+
+      return this;
+    }
   });
 
   var nav = new NavView(),

@@ -3,7 +3,9 @@
 (function() {
 'use strict';
 var Button = Backbone.Model.extend({
-  text: ''
+  defaults: {
+    text: ''
+  }
 });
 
 var ButtonView = Backbone.View.extend({
@@ -47,7 +49,9 @@ var ButtonView = Backbone.View.extend({
 
 });
 var Toolbar = Backbone.Model.extend({
-  text: ''
+  defaults: {
+    text: ''
+  }
 });
 
 var ToolbarView = Backbone.View.extend({

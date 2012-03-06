@@ -1,5 +1,7 @@
 var Button = Backbone.Model.extend({
-  text: ''
+  defaults: {
+    text: ''
+  }
 });
 
 var ButtonView = Backbone.View.extend({

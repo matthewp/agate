@@ -1,5 +1,7 @@
 var Toolbar = Backbone.Model.extend({
-  text: ''
+  defaults: {
+    text: ''
+  }
 });
 
 var ToolbarView = Backbone.View.extend({
