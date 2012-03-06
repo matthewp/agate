@@ -11,8 +11,9 @@ js = ${srcdir}button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 
-css = ${srcdir}style/agate.css\
-      ${srcdir}style/button.css\
+css = ${srcdir}style/gradient.less\
+      ${srcdir}style/agate.css\
+      ${srcdir}style/button.less\
       ${srcdir}style/radio_button.css\
       ${srcdir}style/toolbar.css\
 
