@@ -3,16 +3,18 @@ srcdir = src/
 
 builddir = build/
 
+tmpless = /tmp/agate.less
+
 # Create the list of modules
 js = ${srcdir}button.js\
      ${srcdir}radio_button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 
-css = ${srcdir}css/agate.css\
-      ${srcdir}css/button.css\
-      ${srcdir}css/radio_button.css\
-      ${srcdir}css/toolbar.css\
+css = ${srcdir}style/agate.css\
+      ${srcdir}style/button.css\
+      ${srcdir}style/radio_button.css\
+      ${srcdir}style/toolbar.css\
 
 all: agate.js agate.min.js agate.css
 		              
@@ -29,4 +31,5 @@ agate.min.js:
 	uglifyjs -nc -o ${builddir}$@ ${builddir}agate.js
 
 agate.css: ${css}
-	cat > ${builddir}$@ $^
+	cat > ${tmpless} $^
+	lessc ${tmpless} > ${builddir}$@
