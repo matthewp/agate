@@ -6,11 +6,16 @@ var AppView = Backbone.View.extend({
   className: 'agate',
 
   attributes: {
-    'style': 'padding: 10px'
+    'style': 'padding: 10px;'
   },
 
   render: function() {
     var self = this;
+
+    var container = this.make('div', {
+      class: 'agate',
+      style: 'margin-bottom: 55px;'
+    });
 
     [
       this.createTopToolbar(),
@@ -23,11 +28,13 @@ var AppView = Backbone.View.extend({
       this.createDivider('Checkboxes'),
       this.createChecks(),
       this.createDivider('Groupboxes'),
-      this.createGroups(),
-      this.createNav()
+      this.createGroups()
     ].forEach(function(el) {
-      self.el.appendChild(el);
+      container.appendChild(el);
     });
+
+    self.el.appendChild(container);
+    self.el.appendChild(this.createNav());
 
     return this; 
   },
@@ -80,7 +87,7 @@ var AppView = Backbone.View.extend({
 
       model: new Agate.Groupbox({
         header: true,
-        headerText: 'Some'
+        headerText: 'header'
       }),
 
       render: function() {
