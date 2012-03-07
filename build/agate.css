@@ -440,3 +440,79 @@
 .agate-checkbox[disabled] {
   opacity: 0.4;
 }
+.agate-groupbox > * {
+  display: block;
+  /*box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5);*/
+
+  border-color: #aaaaaa;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  /*padding: 10px;*/
+
+  /* reset styles that make 'item' look bad if they happen to be there */
+
+  border-radius: 0;
+  margin: 0;
+}
+.agate-groupbox > *:first-child {
+  border-top-color: #aaaaaa;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+}
+.agate-groupbox > *:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.agate-groupbox > *:first-child:last-child {
+  border-radius: 4px;
+}
+.agate-groupbox-header {
+  padding: 2px 10px;
+  /**/
+
+  color: white;
+  font-family: Segoe UI, Neue Helvetica, Helvectica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  /**/
+
+  background-color: #343434;
+  border: none;
+  background-color: #4c4c4c;
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(29%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.24)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* W3C */
+
+}
+.agate-groupbox .agate-input-decorator {
+  display: block;
+}
+.agate-groupbox > .agate-input-decorator {
+  border-color: #aaaaaa;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0;
+}
+.agate-groupbox > .agate-input-decorator:first-child {
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+}
+.agate-groupbox > .agate-input-decorator:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.agate-groupbox > .agate-input-decorator:first-child:last-child {
+  border-radius: 4px;
+}
