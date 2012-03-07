@@ -20,6 +20,8 @@ css = ${srcdir}style/gradient.less\
       ${srcdir}style/radio_button.less\
       ${srcdir}style/toggle_button.less\
       ${srcdir}style/toolbar.less\
+      ${srcdir}style/img/checkbox_img.css\
+      ${srcdir}style/checkbox.css\
 
 all: agate.js agate.min.js agate.css
 		              
