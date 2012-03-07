@@ -76,14 +76,32 @@ var AppView = Backbone.View.extend({
   },
 
   createGroups: function() {
-    var group = new Agate.GroupboxView({
+    var InputGroupView = Agate.GroupboxView.extend({
 
-      model: {
+      model: new Agate.Groupbox({
         header: true,
-        headerText: 'header'
+        headerText: 'Some'
+      }),
+
+      render: function() {
+        Agate.GroupboxView.prototype.render.call(this);
+
+        this.message = this.make('div', {
+          style: 'padding: 8px;'
+        }, 'This is a message');
+
+        this.message2 = this.message.cloneNode();
+        this.message2.textContent = 'Another message';
+
+        this.el.appendChild(this.message);
+        this.el.appendChild(this.message2);
+
+        return this;
       }
 
     });
+
+    var group = new InputGroupView();
 
     return group.render().el;
   },
