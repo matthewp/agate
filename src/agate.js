@@ -9,5 +9,8 @@ this.Agate = {
   RadioGroupView: RadioGroupView,
 
   ToggleButtonView: ToggleButtonView,
-  CheckboxView: CheckboxView
+  CheckboxView: CheckboxView,
+
+  Groupbox: Groupbox,
+  GroupboxView: GroupboxView
 };

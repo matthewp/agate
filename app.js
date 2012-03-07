@@ -22,6 +22,8 @@ var AppView = Backbone.View.extend({
       this.createToggles(),
       this.createDivider('Checkboxes'),
       this.createChecks(),
+      this.createDivider('Groupboxes'),
+      this.createGroups(),
       this.createNav()
     ].forEach(function(el) {
       self.el.appendChild(el);
@@ -71,6 +73,19 @@ var AppView = Backbone.View.extend({
     var check = new Agate.CheckboxView();
 
     return check.render().el;
+  },
+
+  createGroups: function() {
+    var group = new Agate.GroupboxView({
+
+      model: {
+        header: true,
+        headerText: 'header'
+      }
+
+    });
+
+    return group.render().el;
   },
 
   createNav: function() {
