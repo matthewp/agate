@@ -11,6 +11,7 @@ js = ${srcdir}utils.js\
      ${srcdir}radio_button.js\
      ${srcdir}radio_group.js\
      ${srcdir}toggle_button.js\
+     ${srcdir}checkbox.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 

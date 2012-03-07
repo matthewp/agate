@@ -20,6 +20,8 @@ var AppView = Backbone.View.extend({
       this.createRadio(),
       this.createDivider('Toggles'),
       this.createToggles(),
+      this.createDivider('Checkboxes'),
+      this.createChecks(),
       this.createNav()
     ].forEach(function(el) {
       self.el.appendChild(el);
@@ -63,6 +65,12 @@ var AppView = Backbone.View.extend({
     var toggle = new Agate.ToggleButtonView();
 
     return toggle.render().el;
+  },
+
+  createChecks: function() {
+    var check = new Agate.CheckboxView();
+
+    return check.render().el;
   },
 
   createNav: function() {
