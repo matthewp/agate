@@ -85,6 +85,25 @@ var RadioGroupView = Backbone.View.extend({
   }
 
 });
+var ToggleButtonView = ButtonView.extend({
+
+  value: false,
+
+  initialize: function() {
+    ButtonView.prototype.initialize.call(this);
+
+    this.value = this.options.value || false;
+  },
+
+  render: function() {
+    ButtonView.prototype.render.call(this);
+
+    this.el.className = this.value ? 'on' : 'off';
+    
+    return this;
+  }
+
+});
 var Toolbar = Backbone.Model.extend({
   defaults: {
     text: ''
@@ -119,6 +138,8 @@ this.Agate = {
   ButtonView: ButtonView,
 
   RadioButtonView: RadioButtonView,
-  RadioGroupView: RadioGroupView
+  RadioGroupView: RadioGroupView,
+
+  ToggleButtonView: ToggleButtonView
 };
 }).call(this);

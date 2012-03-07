@@ -18,6 +18,7 @@ var AppView = Backbone.View.extend({
       this.createButtons(),
       this.createDivider('Radio'),
       this.createRadio(),
+      this.createToggles(),
       this.createNav()
     ].forEach(function(el) {
       self.el.appendChild(el);
@@ -57,7 +58,13 @@ var AppView = Backbone.View.extend({
     return group.render().el;
   },
 
-  createNav: function(body) {
+  createToggles: function() {
+    var toggle = new Agate.ToggleButtonView();
+
+    return toggle.render().el;
+  },
+
+  createNav: function() {
     var NavView = Agate.ToolbarView.extend({
       initialize: function() {
         Agate.ToolbarView.prototype.initialize.call(this);

@@ -9,6 +9,7 @@ tmpless = /tmp/agate.less
 js = ${srcdir}button.js\
      ${srcdir}radio_button.js\
      ${srcdir}radio_group.js\
+     ${srcdir}toggle_button.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 
