@@ -1,6 +1,7 @@
 var Button = Backbone.Model.extend({
   defaults: {
-    text: ''
+    text: '',
+    active: false
   }
 });
 
@@ -9,15 +10,6 @@ var ButtonView = Backbone.View.extend({
   tagName: 'button',
 
   className: 'agate-button',
-
-  events: {
-    'mousedown': 'down',
-    'touchstart': 'down',
-    'mousemove': 'move',
-    'touchmove': 'move',
-    'mouseup': 'up',
-    'touchend': 'up'
-  },
 
   model: new Button(),
 
@@ -28,19 +20,13 @@ var ButtonView = Backbone.View.extend({
 
   render: function() {
     this.el.textContent = this.model.get('text');
+    if(this.model.get('active')) {
+      var classes = this.el.className.split(' ');
+      classes.push('active');
+
+      this.el.className = classes.join(' ');
+    }
+
     return this;
-  },
-
-  down: function() {
-
-  },
-
-  move: function() {
-
-  },
-
-  up: function() {
-
   }
-
 });
