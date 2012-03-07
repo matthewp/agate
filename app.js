@@ -40,13 +40,21 @@ var AppView = Backbone.View.extend({
   },
 
   createRadio: function(body) {
-    var btn = new Agate.RadioButtonView({
-      model: {
-        text: 'Radio'
-      }
+    var buttons = [];
+    [ 'Uno', 'Dos', 'Tres' ].forEach(function(name) {
+      var model = new Agate.Button();
+      model.set('text', name);
+
+      var btn = new Agate.RadioButtonView({
+        model: model
+      });
+      
+      buttons.push(btn);
     });
 
-    return btn.render().el;
+    var group = new Agate.RadioGroupView({ buttons: buttons });
+
+    return group.render().el;
   },
 
   createNav: function(body) {

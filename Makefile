@@ -8,6 +8,7 @@ tmpless = /tmp/agate.less
 # Create the list of modules
 js = ${srcdir}button.js\
      ${srcdir}radio_button.js\
+     ${srcdir}radio_group.js\
      ${srcdir}toolbar.js\
      ${srcdir}agate.js\
 

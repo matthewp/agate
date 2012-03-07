@@ -51,6 +51,29 @@ var ButtonView = Backbone.View.extend({
 var RadioButtonView = ButtonView.extend({
   className: 'agate-radiobutton'
 });
+var RadioGroupView = Backbone.View.extend({
+  
+  buttons: [],
+
+  initialize: function() {
+    var buttons = this.options.buttons;
+    if(buttons && buttons.length > 0) {
+      buttons[0].model.set('active', true);
+    }
+  },
+
+  render: function() {
+    var self = this;
+
+    self.options.buttons.forEach(function(btn) {
+      var el = btn.render().el;
+      self.el.appendChild(el);
+    });
+
+    return self;
+  }
+
+});
 var Toolbar = Backbone.Model.extend({
   defaults: {
     text: ''
@@ -84,6 +107,7 @@ this.Agate = {
   Button: Button,
   ButtonView: ButtonView,
 
-  RadioButtonView: RadioButtonView
+  RadioButtonView: RadioButtonView,
+  RadioGroupView: RadioGroupView
 };
 }).call(this);

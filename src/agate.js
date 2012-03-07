@@ -5,5 +5,6 @@ this.Agate = {
   Button: Button,
   ButtonView: ButtonView,
 
-  RadioButtonView: RadioButtonView
+  RadioButtonView: RadioButtonView,
+  RadioGroupView: RadioGroupView
 };
