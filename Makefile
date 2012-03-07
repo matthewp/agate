@@ -25,6 +25,7 @@ css = ${srcdir}style/gradient.less\
       ${srcdir}style/img/checkbox_img.css\
       ${srcdir}style/checkbox.css\
       ${srcdir}style/groupbox.less\
+      ${srcdir}style/input.css\
 
 all: agate.js agate.min.js agate.css
 		              
