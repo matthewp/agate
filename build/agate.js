@@ -145,9 +145,7 @@ var ToggleButtonView = ButtonView.extend({
   },
 
   renderOn: function() {
-    var make = (new Backbone.View).make;
-
-    var el = make('div', {
+    var el = this.make('div', {
       style: !this.value ? 'display: none;' : '',
       class: 'agate-toggle-content on'
     }, 'On');
@@ -156,9 +154,7 @@ var ToggleButtonView = ButtonView.extend({
   },
 
   renderOff: function() {
-    var make = (new Backbone.View).make;
-
-    var el = make('div', {
+    var el = this.make('div', {
       style: this.value ? 'display: none;' : '',
       class: 'agate-toggle-content off'
     }, 'Off');
@@ -167,9 +163,7 @@ var ToggleButtonView = ButtonView.extend({
   },
 
   renderKnob: function() {
-    var make = (new Backbone.View).make;
-
-    var el = make('div', {
+    var el = this.make('div', {
       class: 'agate-toggle-button-knob'
     });
 
