@@ -2,6 +2,28 @@
 
 (function() {
 'use strict';
+var slice = Array.prototype.slice;
+var splice = Array.prototype.splice;
+
+function include(arr, val) {
+  if(arr.indexOf(val) !== -1)
+    return arr;
+
+  arr.push(val);
+
+  return arr;
+}
+
+function exclude(arr, val) {
+  var index;
+
+  if((index = arr.indexOf(val)) === -1)
+      return arr;
+
+  var newArr = arr.slice(index, index++);
+
+  return newArr;
+}
 var Button = Backbone.Model.extend({
   defaults: {
     text: '',
@@ -87,7 +109,16 @@ var RadioGroupView = Backbone.View.extend({
 });
 var ToggleButtonView = ButtonView.extend({
 
+  tagName: 'div',
+
+  className: 'agate-toggle-button',
+
   value: false,
+
+  events: {
+    'mouseup': 'up',
+    'touchend': 'up'
+  },
 
   initialize: function() {
     ButtonView.prototype.initialize.call(this);
@@ -96,11 +127,63 @@ var ToggleButtonView = ButtonView.extend({
   },
 
   render: function() {
+    var self = this;
+
     ButtonView.prototype.render.call(this);
 
-    this.el.className = this.value ? 'on' : 'off';
+    if(!this.onEl || !this.offEl || !this.knobEl) {
+      this.onEl = this.renderOn();
+      this.offEl = this.renderOff();
+      this.knobEl = this.renderKnob();
+    }
+
+    [ this.onEl, this.offEl, this.knobEl ].forEach(function(el) {
+      self.el.appendChild(el);
+    });
     
     return this;
+  },
+
+  renderOn: function() {
+    var make = (new Backbone.View).make;
+
+    var el = make('div', {
+      style: !this.value ? 'display: none;' : '',
+      class: 'agate-toggle-content on'
+    }, 'On');
+
+    return el;
+  },
+
+  renderOff: function() {
+    var make = (new Backbone.View).make;
+
+    var el = make('div', {
+      style: this.value ? 'display: none;' : '',
+      class: 'agate-toggle-content off'
+    }, 'Off');
+
+    return el;
+  },
+
+  renderKnob: function() {
+    var make = (new Backbone.View).make;
+
+    var el = make('div', {
+      class: 'agate-toggle-button-knob'
+    });
+
+    return el;
+  },
+
+  up: function() {
+    this.value = !this.value;
+
+    var turnOn = this.value ? this.onEl : this.offEl;
+    var turnOff = this.value ? this.offEl : this.onEl;
+
+    turnOn.style.display = null;
+    turnOff.style.display = 'none';
   }
 
 });

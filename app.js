@@ -18,6 +18,7 @@ var AppView = Backbone.View.extend({
       this.createButtons(),
       this.createDivider('Radio'),
       this.createRadio(),
+      this.createDivider('Toggles'),
       this.createToggles(),
       this.createNav()
     ].forEach(function(el) {

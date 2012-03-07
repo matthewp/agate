@@ -6,7 +6,8 @@ builddir = build/
 tmpless = /tmp/agate.less
 
 # Create the list of modules
-js = ${srcdir}button.js\
+js = ${srcdir}utils.js\
+     ${srcdir}button.js\
      ${srcdir}radio_button.js\
      ${srcdir}radio_group.js\
      ${srcdir}toggle_button.js\
