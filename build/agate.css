@@ -250,6 +250,98 @@
   border-top: 1px solid rgba(15, 15, 15, 0.6);
   box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.2);
 }
+.onyx-toggle-button {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  min-width: 64px;
+  vertical-align: middle;
+  text-align: center;
+  /* */
+
+  border-radius: 3px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.24)), color-stop(71%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* W3C */
+
+  background-color: #8BBA3D;
+  background-size: auto 100%;
+  /* label */
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.onyx-toggle-button.off {
+  background-color: #B1B1B1 !important;
+}
+.onyx-toggle-button-knob {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+  border-radius: 3px;
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(29%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.24)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, 0.24) 100%);
+  /* W3C */
+
+  background-color: #F6F6F6;
+  background-size: auto 100%;
+}
+.onyx-toggle-button .onyx-toggle-button-knob {
+  box-shadow: -1px 0px 4px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  float: right;
+}
+.onyx-toggle-button.off .onyx-toggle-button-knob {
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+}
+.onyx-toggle-button.disabled {
+  opacity: 0.4;
+}
+.onyx-toggle-content {
+  min-width: 32px;
+  padding: 0 6px;
+}
+.onyx-toggle-content.empty {
+  padding: 0;
+}
+.onyx-toggle-content.off {
+  float: right;
+}
+.onyx-toggle-content.on {
+  float: left;
+}
 .agate-toolbar {
   /*
 		line-height is unreliable for centering, instead

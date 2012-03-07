@@ -17,6 +17,7 @@ css = ${srcdir}style/gradient.less\
       ${srcdir}style/agate.css\
       ${srcdir}style/button.less\
       ${srcdir}style/radio_button.less\
+      ${srcdir}style/toggle_button.less\
       ${srcdir}style/toolbar.less\
 
 all: agate.js agate.min.js agate.css
