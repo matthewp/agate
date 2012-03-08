@@ -16,6 +16,7 @@ js = ${srcdir}utils.js\
      ${srcdir}groupbox.js\
      ${srcdir}toolbar.js\
      ${srcdir}input.js\
+     ${srcdir}textarea.js\
      ${srcdir}agate.js\
 
 css = ${srcdir}style/gradient.less\
@@ -28,6 +29,7 @@ css = ${srcdir}style/gradient.less\
       ${srcdir}style/checkbox.css\
       ${srcdir}style/groupbox.less\
       ${srcdir}style/input.css\
+      ${srcdir}style/textarea.css\
 
 all: agate.js agate.min.js agate.css
 		              

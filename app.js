@@ -127,6 +127,7 @@ var AppView = Backbone.View.extend({
     });
 
     var el = document.createElement('div');
+    el.className = 'agate';
     el.appendChild(input.render().el);
 
     var btn = new Agate.ButtonView({
@@ -144,6 +145,16 @@ var AppView = Backbone.View.extend({
     });
 
     el.appendChild(btn.render().el);
+
+    var txt = new Agate.TextareaView({
+      model: {
+        placeholder: 'Long form content'
+      },
+
+      attributes: {
+      }
+    });
+    el.appendChild(txt.render().el);
 
     return el;
   },

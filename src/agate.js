@@ -17,5 +17,6 @@ this.Agate = {
   GroupboxView: GroupboxView,
 
   Input: Input,
-  InputView: InputView
+  InputView: InputView,
+  TextareaView: TextareaView
 };
