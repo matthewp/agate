@@ -14,7 +14,7 @@ var AppView = Backbone.View.extend({
 
     var container = this.make('div', {
       class: 'agate',
-      style: 'margin-bottom: 55px;'
+      style: 'margin-bottom: 65px;'
     });
 
     [
@@ -28,7 +28,9 @@ var AppView = Backbone.View.extend({
       this.createDivider('Checkboxes'),
       this.createChecks(),
       this.createDivider('Groupboxes'),
-      this.createGroups()
+      this.createGroups(),
+      this.createDivider('Inputs'),
+      this.createInputs()
     ].forEach(function(el) {
       container.appendChild(el);
     });
@@ -111,6 +113,39 @@ var AppView = Backbone.View.extend({
     var group = new InputGroupView();
 
     return group.render().el;
+  },
+
+  createInputs: function() {
+    var input = new Agate.InputView({
+      model: {
+        placeholder: 'Name?'
+      },
+
+      attributes: {
+        style: 'margin-right: 5px;'
+      }
+    });
+
+    var el = document.createElement('div');
+    el.appendChild(input.render().el);
+
+    var btn = new Agate.ButtonView({
+      model: {
+        text: 'Click me'
+      }
+    });
+    var up = function() {
+      input.model.set('text', 'Hello there!');
+    };
+    
+    btn.delegateEvents({
+      'touchend': up,
+      'mouseup': up
+    });
+
+    el.appendChild(btn.render().el);
+
+    return el;
   },
 
   createNav: function() {

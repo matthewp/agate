@@ -15,6 +15,7 @@ js = ${srcdir}utils.js\
      ${srcdir}checkbox.js\
      ${srcdir}groupbox.js\
      ${srcdir}toolbar.js\
+     ${srcdir}input.js\
      ${srcdir}agate.js\
 
 css = ${srcdir}style/gradient.less\

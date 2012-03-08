@@ -1,5 +1,11 @@
 var Input = Backbone.Model.extend({
+  
+  defaults: {
+    placeholder: '',
 
+    text: ''
+  }
+    
 });
 
 var InputView = View.extend({
@@ -8,15 +14,17 @@ var InputView = View.extend({
 
   className: 'agate-input-decorator',
 
-  model: new Input(),
+  model: Input,
 
   initialize: function() {
     if(!(this.model instanceof Input))
-      this.model = new Input();
+      this.model = new Input(this.model);
+
+    this.model.on('change:text', this.setText, this);
   },
 
   render: function() {
-    var input = renderInput();  
+    var input = this.renderInput();  
 
     this.el.appendChild(input);
 
@@ -24,10 +32,18 @@ var InputView = View.extend({
   },
 
   renderInput: function() {
-    return this.make('input', {
+    this.inputEl = this.make('input', {
       class: 'agate-input',
-      placeholder: this.model.get('placeholder')
+      placeholder: this.model.get('placeholder'),
+      value: this.model.get('text')
     });
+
+    return this.inputEl;
+  },
+
+  setText: function() {
+    var text = this.model.get('text');         
+    this.inputEl.value = text;
   }
 
 });

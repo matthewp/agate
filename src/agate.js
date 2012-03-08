@@ -14,5 +14,8 @@ this.Agate = {
   CheckboxView: CheckboxView,
 
   Groupbox: Groupbox,
-  GroupboxView: GroupboxView
+  GroupboxView: GroupboxView,
+
+  Input: Input,
+  InputView: InputView
 };
