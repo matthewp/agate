@@ -232,7 +232,7 @@ var CheckboxView = View.extend({
 
   checkedClassName: 'agate-checkbox-checked',
 
-  className: this.baseClassName,
+  className: 'agate-checkbox agate-checkbox-img',
 
   checked: false,
 
