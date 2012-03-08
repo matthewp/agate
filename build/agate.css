@@ -558,6 +558,7 @@
   cursor: default;
 }
 .agate-textarea-decorator {
+  display: block;
   padding: 6px 8px 10px 8px;
   border-radius: 3px;
   border: 1px solid;
@@ -592,6 +593,7 @@
   /* -webkit-appearance: caret;*/
 
   resize: none;
+  width: 100%;
 }
 .agate-textarea-decorator.agate-focused > textarea {
   cursor: text;
