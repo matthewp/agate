@@ -1,4 +1,4 @@
-var RadioGroupView = Backbone.View.extend({
+var RadioGroupView = View.extend({
   
   buttons: [],
 
@@ -27,21 +27,18 @@ var RadioGroupView = Backbone.View.extend({
 
   up: function(e) {
     var el = e.target,
-        classes = el.className.split(' '),
-        active = classes.indexOf('active') !== -1;
+        active = this.hasClassName(el.className, 'active'),
+        self = this;
     
     if(!active) {
       
       this.options.buttons.forEach(function(btn) {
-        var cs = btn.el.className.split(' ');
-        
         btn.model.set('active', false);
-        btn.el.className = _.without(cs, 'active').join(' ');
+        btn.el.className = self.removeClassName(
+          btn.el.className, 'active');
       });
 
-      classes.push('active');
-      el.className = classes.join(' ');
-
+      el.className = this.addClassName(el.className, 'active');
     }
   }
 

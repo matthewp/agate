@@ -24,6 +24,54 @@ function exclude(arr, val) {
 
   return newArr;
 }
+var View = Backbone.View.extend({
+
+  hasClassName: function(oldClassName, className) {
+    return oldClassName.split(' ').indexOf(className) !== -1;
+  },
+
+  addClassName: function(oldClassName, newClassName) {
+    var classes = oldClassName.split(' ');
+
+    if(classes.indexOf(newClassName) !== -1)
+      return oldClassName;
+
+    classes.push(newClassName);
+
+    return classes.join(' ');
+  },
+
+  removeClassName: function(oldClassName, newClassName) {
+    var classes = oldClassName.split(' ');
+
+    var index;
+    if((index = classes.indexOf(newClassName)) === -1)
+      return oldClassName;
+
+    classes.splice(index, 1);
+
+    return classes.join(' ');
+  },
+
+  hasClass: function(className) {
+    return this.hasClassName(className);
+  },
+
+  addClass: function(className) {
+    this.className = this.addClassName(this.className, className);
+
+    if(this.el)
+      this.el.className = this.className;
+  },
+
+  removeClass: function(className) {
+    this.className = this.removeClassName(this.className, className);
+    
+    if(this.el)
+      this.el.className = this.className;
+  }
+
+});
 var Button = Backbone.Model.extend({
   defaults: {
     text: '',
@@ -59,7 +107,7 @@ var ButtonView = Backbone.View.extend({
 var RadioButtonView = ButtonView.extend({
   className: 'agate-radiobutton'
 });
-var RadioGroupView = Backbone.View.extend({
+var RadioGroupView = View.extend({
   
   buttons: [],
 
@@ -88,21 +136,18 @@ var RadioGroupView = Backbone.View.extend({
 
   up: function(e) {
     var el = e.target,
-        classes = el.className.split(' '),
-        active = classes.indexOf('active') !== -1;
+        active = this.hasClassName(el.className, 'active'),
+        self = this;
     
     if(!active) {
       
       this.options.buttons.forEach(function(btn) {
-        var cs = btn.el.className.split(' ');
-        
         btn.model.set('active', false);
-        btn.el.className = _.without(cs, 'active').join(' ');
+        btn.el.className = self.removeClassName(
+          btn.el.className, 'active');
       });
 
-      classes.push('active');
-      el.className = classes.join(' ');
-
+      el.className = this.addClassName(el.className, 'active');
     }
   }
 
@@ -181,11 +226,11 @@ var ToggleButtonView = ButtonView.extend({
   }
 
 });
-var CheckboxView = Backbone.View.extend({
+var CheckboxView = View.extend({
   
   tagName: 'div',
 
-  baseClassName: 'agate-checkbox agate-checkbox-img',
+  checkedClassName: 'agate-checkbox-checked',
 
   className: this.baseClassName,
 
@@ -197,11 +242,10 @@ var CheckboxView = Backbone.View.extend({
   },
 
   render: function() {
-    this.className = this.checked
-      ? this.baseClassName + ' agate-checkbox-checked'
-      : this.baseClassName;
-
-    this.el.className = this.className;
+    if(this.checked)
+      this.addClass(this.checkedClassName);
+    else
+      this.removeClass(this.checkedClassName);
 
     return this;
   },
@@ -281,6 +325,8 @@ var ToolbarView = Backbone.View.extend({
 });
 
 this.Agate = {
+  View: View,
+
   Toolbar: Toolbar,
   ToolbarView: ToolbarView,
 

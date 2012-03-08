@@ -1,8 +1,8 @@
-var CheckboxView = Backbone.View.extend({
+var CheckboxView = View.extend({
   
   tagName: 'div',
 
-  baseClassName: 'agate-checkbox agate-checkbox-img',
+  checkedClassName: 'agate-checkbox-checked',
 
   className: this.baseClassName,
 
@@ -14,11 +14,10 @@ var CheckboxView = Backbone.View.extend({
   },
 
   render: function() {
-    this.className = this.checked
-      ? this.baseClassName + ' agate-checkbox-checked'
-      : this.baseClassName;
-
-    this.el.className = this.className;
+    if(this.checked)
+      this.addClass(this.checkedClassName);
+    else
+      this.removeClass(this.checkedClassName);
 
     return this;
   },
