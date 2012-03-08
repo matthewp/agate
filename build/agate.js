@@ -27,10 +27,16 @@ function exclude(arr, val) {
 var View = Backbone.View.extend({
 
   hasClassName: function(oldClassName, className) {
+    if(!oldClassName)
+      return oldClassName;
+
     return oldClassName.split(' ').indexOf(className) !== -1;
   },
 
   addClassName: function(oldClassName, newClassName) {
+    if(!oldClassName)
+      return oldClassName;
+
     var classes = oldClassName.split(' ');
 
     if(classes.indexOf(newClassName) !== -1)
@@ -42,6 +48,9 @@ var View = Backbone.View.extend({
   },
 
   removeClassName: function(oldClassName, newClassName) {
+    if(!oldClassName)
+      return oldClassName;
+
     var classes = oldClassName.split(' ');
 
     var index;
