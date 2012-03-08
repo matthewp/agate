@@ -5,7 +5,7 @@ var Button = Backbone.Model.extend({
   }
 });
 
-var ButtonView = Backbone.View.extend({
+var ButtonView = View.extend({
 
   tagName: 'button',
 
@@ -21,10 +21,7 @@ var ButtonView = Backbone.View.extend({
   render: function() {
     this.el.textContent = this.model.get('text');
     if(this.model.get('active')) {
-      var classes = this.el.className.split(' ');
-      classes.push('active');
-
-      this.el.className = classes.join(' ');
+      this.addClass('active');
     }
 
     return this;

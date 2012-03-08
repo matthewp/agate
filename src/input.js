@@ -2,7 +2,7 @@ var Input = Backbone.Model.extend({
 
 });
 
-var InputView = Backbone.View.extend({
+var InputView = View.extend({
 
   tagName: 'label',
 
@@ -16,20 +16,18 @@ var InputView = Backbone.View.extend({
   },
 
   render: function() {
-    this.input = renderInput();  
+    var input = renderInput();  
 
-    this.el.appendChild(this.input);
+    this.el.appendChild(input);
 
     return this;
   },
 
   renderInput: function() {
-    var input = this.make('input', {
+    return this.make('input', {
       class: 'agate-input',
       placeholder: this.model.get('placeholder')
     });
-
-    return input;
   }
 
 });

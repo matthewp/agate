@@ -7,7 +7,7 @@ var Groupbox = Backbone.Model.extend({
 
 });
 
-var GroupboxView = Backbone.View.extend({
+var GroupboxView = View.extend({
 
   tagName: 'div',
 
@@ -22,21 +22,18 @@ var GroupboxView = Backbone.View.extend({
 
   render: function() {
     if(this.model.get('header')) {
-      if(!this.header)
-        this.renderHeader();
+      var header = this.renderHeader();
 
-      this.el.appendChild(this.header);
+      this.el.appendChild(header);
     }
 
     return this;
   },
 
   renderHeader: function() {
-    this.header = this.make('div', {
+    return this.make('div', {
       class: 'agate-groupbox-header'
     }, this.model.get('headerText'));
-
-    return this.header;
   }
 
 });

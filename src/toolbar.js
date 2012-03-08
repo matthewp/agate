@@ -4,7 +4,7 @@ var Toolbar = Backbone.Model.extend({
   }
 });
 
-var ToolbarView = Backbone.View.extend({
+var ToolbarView = View.extend({
 
   tagName: 'div',
 

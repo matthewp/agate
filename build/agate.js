@@ -88,7 +88,7 @@ var Button = Backbone.Model.extend({
   }
 });
 
-var ButtonView = Backbone.View.extend({
+var ButtonView = View.extend({
 
   tagName: 'button',
 
@@ -104,10 +104,7 @@ var ButtonView = Backbone.View.extend({
   render: function() {
     this.el.textContent = this.model.get('text');
     if(this.model.get('active')) {
-      var classes = this.el.className.split(' ');
-      classes.push('active');
-
-      this.el.className = classes.join(' ');
+      this.addClass('active');
     }
 
     return this;
@@ -185,11 +182,9 @@ var ToggleButtonView = ButtonView.extend({
 
     ButtonView.prototype.render.call(this);
 
-    if(!this.onEl || !this.offEl || !this.knobEl) {
-      this.onEl = this.renderOn();
-      this.offEl = this.renderOff();
-      this.knobEl = this.renderKnob();
-    }
+    this.onEl = this.renderOn();
+    this.offEl = this.renderOff();
+    this.knobEl = this.renderKnob();
 
     [ this.onEl, this.offEl, this.knobEl ].forEach(function(el) {
       self.el.appendChild(el);
@@ -274,7 +269,7 @@ var Groupbox = Backbone.Model.extend({
 
 });
 
-var GroupboxView = Backbone.View.extend({
+var GroupboxView = View.extend({
 
   tagName: 'div',
 
@@ -289,21 +284,18 @@ var GroupboxView = Backbone.View.extend({
 
   render: function() {
     if(this.model.get('header')) {
-      if(!this.header)
-        this.renderHeader();
+      var header = this.renderHeader();
 
-      this.el.appendChild(this.header);
+      this.el.appendChild(header);
     }
 
     return this;
   },
 
   renderHeader: function() {
-    this.header = this.make('div', {
+    return this.make('div', {
       class: 'agate-groupbox-header'
     }, this.model.get('headerText'));
-
-    return this.header;
   }
 
 });
@@ -313,7 +305,7 @@ var Toolbar = Backbone.Model.extend({
   }
 });
 
-var ToolbarView = Backbone.View.extend({
+var ToolbarView = View.extend({
 
   tagName: 'div',
 

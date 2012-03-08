@@ -22,11 +22,9 @@ var ToggleButtonView = ButtonView.extend({
 
     ButtonView.prototype.render.call(this);
 
-    if(!this.onEl || !this.offEl || !this.knobEl) {
-      this.onEl = this.renderOn();
-      this.offEl = this.renderOff();
-      this.knobEl = this.renderKnob();
-    }
+    this.onEl = this.renderOn();
+    this.offEl = this.renderOff();
+    this.knobEl = this.renderKnob();
 
     [ this.onEl, this.offEl, this.knobEl ].forEach(function(el) {
       self.el.appendChild(el);
