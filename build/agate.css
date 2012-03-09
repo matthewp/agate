@@ -601,3 +601,7 @@
 .agate-textarea-decorator.agate-disabled > textarea {
   cursor: default;
 }
+.agate-groupbox > .agate-textarea-decorator {
+  border-width: 0px 1px 1px 1px;
+  border-radius: 0px;
+}

@@ -130,10 +130,6 @@ var AppView = Backbone.View.extend({
           model: {
             placeholder: 'Name?'
           },
-
-          attributes: {
-            style: 'margin-right: 5px;'
-          }
         });
 
         var el = this.el;
