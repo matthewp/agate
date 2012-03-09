@@ -16,13 +16,6 @@ var InputView = View.extend({
 
   model: new Input(),
 
-  events: {
-    'touchstart': 'setFocused',
-    'mousedown': 'setFocused',
-    'touchend': 'setBlurred',
-    'mouseup': 'setBlurred'
-  },
-
   initialize: function() {
     if(!(this.model instanceof Input))
       this.model = new Input(this.model);
@@ -31,7 +24,7 @@ var InputView = View.extend({
   },
 
   render: function() {
-    var input = this.renderInput();  
+    var input = this.renderInput();
 
     this.el.appendChild(input);
 
