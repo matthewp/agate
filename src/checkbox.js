@@ -22,7 +22,9 @@ var CheckboxView = View.extend({
     return this;
   },
 
-  down: function() {
+  down: function(e) {
+    e.preventDefault();
+
     this.checked = !this.checked;
     this.render();
   }

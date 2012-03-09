@@ -219,7 +219,9 @@ var ToggleButtonView = ButtonView.extend({
     return el;
   },
 
-  up: function() {
+  up: function(e) {
+    e.preventDefault();
+
     this.value = !this.value;
 
     var turnOn = this.value ? this.onEl : this.offEl;
@@ -254,7 +256,9 @@ var CheckboxView = View.extend({
     return this;
   },
 
-  down: function() {
+  down: function(e) {
+    e.preventDefault();
+
     this.checked = !this.checked;
     this.render();
   }
