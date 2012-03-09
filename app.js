@@ -116,47 +116,67 @@ var AppView = Backbone.View.extend({
   },
 
   createInputs: function() {
-    var input = new Agate.InputView({
-      model: {
-        placeholder: 'Name?'
-      },
+    var InputGroupView = Agate.GroupboxView.extend({
 
-      attributes: {
-        style: 'margin-right: 5px;'
+      model: new Agate.Groupbox({
+        header: true,
+        headerText: 'form'
+      }),
+
+      render: function() {
+        Agate.GroupboxView.prototype.render.call(this);
+
+        var input = new Agate.InputView({
+          model: {
+            placeholder: 'Name?'
+          },
+
+          attributes: {
+            style: 'margin-right: 5px;'
+          }
+        });
+
+        var el = this.el;
+        el.appendChild(input.render().el);
+
+        
+        var txt = new Agate.TextareaView({
+          model: {
+            placeholder: 'Long form content'
+          },
+
+          attributes: {
+
+          }
+        });
+        el.appendChild(txt.render().el);
+
+        var btn = new Agate.ButtonView({
+          model: {
+            text: 'Click me'
+          },
+          attributes: {
+            style: 'width: 100%'
+          }
+        });
+        var up = function() {
+          input.model.set('text', 'Hello there!');
+        };
+        
+        btn.delegateEvents({
+          'touchend': up,
+          'mouseup': up
+        });
+
+        el.appendChild(btn.render().el);
+
+        return this;
       }
-    });
 
-    var el = document.createElement('div');
-    el.className = 'agate';
-    el.appendChild(input.render().el);
-
-    var btn = new Agate.ButtonView({
-      model: {
-        text: 'Click me'
-      }
     });
-    var up = function() {
-      input.model.set('text', 'Hello there!');
-    };
     
-    btn.delegateEvents({
-      'touchend': up,
-      'mouseup': up
-    });
-
-    el.appendChild(btn.render().el);
-
-    var txt = new Agate.TextareaView({
-      model: {
-        placeholder: 'Long form content'
-      },
-
-      attributes: {
-      }
-    });
-    el.appendChild(txt.render().el);
-
-    return el;
+    var group = new InputGroupView();
+    return group.render().el;
   },
 
   createNav: function() {
