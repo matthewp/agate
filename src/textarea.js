@@ -1,4 +1,4 @@
-var TextareaView = View.extend({
+var TextareaView = InputView.extend({
 
   tagName: 'label',
 

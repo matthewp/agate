@@ -345,7 +345,14 @@ var InputView = View.extend({
 
   className: 'agate-input-decorator',
 
-  model: Input,
+  model: new Input(),
+
+  events: {
+    'touchstart': 'setFocused',
+    'mousedown': 'setFocused',
+    'touchend': 'setBlurred',
+    'mouseup': 'setBlurred'
+  },
 
   initialize: function() {
     if(!(this.model instanceof Input))
@@ -375,10 +382,22 @@ var InputView = View.extend({
   setText: function() {
     var text = this.model.get('text');         
     this.inputEl.value = text;
+  },
+
+  setFocused: function(e) {
+    e.preventDefault();
+
+    this.addClass('agate-focused');
+  },
+
+  setBlurred: function(e) {
+    e.preventDefault();
+
+    this.removeClass('agate-focused');
   }
 
 });
-var TextareaView = View.extend({
+var TextareaView = InputView.extend({
 
   tagName: 'label',
 
