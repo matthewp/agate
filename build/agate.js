@@ -354,8 +354,31 @@ var InputView = View.extend({
     this.model.on('change:text', this.setText, this);
   },
 
+  bindEvents: function(el) {
+    var self = this;
+
+    [ 'focus', 'blur' ].forEach(function(evt) {
+      el.removeEventListener(evt, self);
+      el.addEventListener(evt, self);
+    });
+  },
+
+  handleEvent: function(e) {
+    e.preventDefault();
+
+    switch(e.type) {
+      case 'focus':
+        this.setFocused();
+        break;
+      case 'blur':
+        this.setBlurred();
+        break;
+    }
+  },
+
   render: function() {
     var input = this.renderInput();
+    this.bindEvents(input);
 
     this.el.appendChild(input);
 
@@ -377,15 +400,11 @@ var InputView = View.extend({
     this.inputEl.value = text;
   },
 
-  setFocused: function(e) {
-    e.preventDefault();
-
+  setFocused: function() {
     this.addClass('agate-focused');
   },
 
-  setBlurred: function(e) {
-    e.preventDefault();
-
+  setBlurred: function() {
     this.removeClass('agate-focused');
   }
 
@@ -407,6 +426,7 @@ var TextareaView = InputView.extend({
 
   render: function() {
     this.renderTextarea();
+    this.bindEvents(this.textareaEl);
 
     this.el.appendChild(this.textareaEl);
 

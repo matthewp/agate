@@ -15,6 +15,7 @@ var TextareaView = InputView.extend({
 
   render: function() {
     this.renderTextarea();
+    this.bindEvents(this.textareaEl);
 
     this.el.appendChild(this.textareaEl);
 
