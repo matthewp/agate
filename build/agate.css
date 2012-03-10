@@ -136,6 +136,25 @@
   text-overflow: ellipsis;
 }
 .agate-button.active {
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.24)), color-stop(71%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0) 100%);
+  /* W3C */
+
+  background-position: top;
   border-top: 1px solid rgba(15, 15, 15, 0.6);
   box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
