@@ -38,6 +38,8 @@ var View = Backbone.View.extend({
         el = comp.render().el;
       else if(comp instanceof HTMLElement)
         el = comp;
+      else
+        throw new Error('Components must either be Backbone Views or HTMLElement objects.');
 
       self.el.appendChild(el);
     });
