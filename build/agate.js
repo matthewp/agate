@@ -26,6 +26,25 @@ function exclude(arr, val) {
 }
 var View = Backbone.View.extend({
 
+  components: [ ],
+
+  render: function() {
+    var self = this;
+
+    self.components.forEach(function(comp) {
+      var el;
+
+      if(comp instanceof Backbone.View)
+        el = comp.render().el;
+      else if(comp instanceof HTMLElement)
+        el = comp;
+
+      self.el.appendChild(el);
+    });
+
+    return this;
+  },
+
   hasClassName: function(oldClassName, className) {
     if(!oldClassName)
       return oldClassName;
