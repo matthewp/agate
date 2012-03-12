@@ -4,6 +4,4 @@
 [submodule "libs/underscore"]
 	path = libs/underscore
 	url = https://github.com/documentcloud/underscore.git
-[submodule "libs/doT"]
-	path = libs/doT
-	url = https://github.com/olado/doT.git
+
