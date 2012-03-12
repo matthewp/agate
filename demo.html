@@ -7,7 +7,6 @@
   <script src="libs/zepto/zepto.min.js"></script>
   <script src="libs/underscore/underscore-min.js"></script>
   <script src="libs/backbone/backbone.js"></script>
-  <script src="libs/doT/doT.js"></script>
 
   <script src="build/agate.js"></script>
   <script src="app.js"></script>
@@ -37,6 +36,24 @@
     }
   </style>
 </head>
+<script type="text/html" id="desc_intro">
+<p>
+  <span style="font-style:italic;font-weight:bolder;">Agate</span> is a UI toolkit of <a href="http://backbonejs.org/#View">Backbone View</a> widgets, targeting mobile applications. It is a direct fork/port of <a href="https://github.com/enyojs/onyx">Enyo's Onyx</a> UI toolkit.
+</p>
+<p>
+  Agate has a slightly different philosophy than Onyx. Agate is made for the latest mobile web browsers in mind, and doesn't make compromises or add cruft to support outdated desktop browsers with diminishing market shares. For example Onyx uses background images to give its buttons' gradient, Agate simply uses CSS3 linear-gradient to achieve the same affect. Agate will always include all vendor prefixes on CSS effects (thank you <a href="http://lesscss.org">Less</a>).
+</p>
+</script>
+<script type="text/html" id="desc_button">
+<p>Agate.Button is a generic button widget.</p>
+<code>
+  var btn = new Agate.Button({
+    model: {
+      text: 'Click me'
+    }
+  });
+</code>
+</script>
 <body>
 <script defer="defer">
 window.addEventListener('load', function pageLoad(e) {

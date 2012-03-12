@@ -19,8 +19,10 @@ var AppView = Backbone.View.extend({
 
     [
       this.createTopToolbar(),
+      this.addContent('desc_intro'),
       this.createDivider('Buttons'),
       this.createButtons(),
+      this.addContent('desc_button'),
       this.createDivider('Radio'),
       this.createRadio(),
       this.createDivider('Toggles'),
@@ -211,8 +213,16 @@ var AppView = Backbone.View.extend({
       el.textContent = text;
 
     return el;
-  }
+  },
 
+  addContent: function(id) {
+    var scrEl = document.getElementById(id),
+        el = document.createElement('article');
+
+    el.innerHTML = scrEl.innerHTML;
+   
+    return el;
+  }
 
 });
 
