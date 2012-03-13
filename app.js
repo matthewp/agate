@@ -25,6 +25,7 @@ var AppView = Backbone.View.extend({
       this.addContent('desc_button'),
       this.createDivider('Radio'),
       this.createRadio(),
+      this.addContent('desc_radio'),
       this.createDivider('Toggles'),
       this.createToggles(),
       this.createDivider('Checkboxes'),

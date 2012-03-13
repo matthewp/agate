@@ -18,6 +18,12 @@
       padding: 0;
     }
 
+    pre {
+      background: #FAF9F7;
+      border: 1px dashed #DC441F;
+      padding: 5px;
+    }
+
     .divider {
       color: #F49200;
       text-transform: uppercase;
@@ -45,14 +51,29 @@
 </p>
 </script>
 <script type="text/html" id="desc_button">
-<p>Agate.Button is a generic button widget.</p>
-<code>
-  var btn = new Agate.Button({
+<p>Agate.ButtonView is a generic button widget.</p>
+<pre>
+  var btn = new Agate.ButtonView({
     model: {
       text: 'Click me'
     }
   });
-</code>
+</pre>
+</script>
+<script type="text/html" id="desc_radio">
+<p>Agate.RadioButtonView derives from Agate.ButtonView but has a special property. When Agate.RadioButtonViews are grouped together in a Agate.RadioGroupView they are exclusively selected.
+<pre>
+  var rbv = Agate.RadioButtonView;
+
+  var fee = new rbv({ model: { text: 'fee' } }),
+      fi = new rbv({ model: { text: 'fi' } }),
+      fo = new rbv({ model: { text: 'fo' } }),
+      fum = new rbv({ model: { text: 'fum' } });
+
+  var group = new Agate.RadioGroupView({
+    buttons: [ fee, fi, fo, fum ]
+  });
+</pre>
 </script>
 <body>
 <script defer="defer">
